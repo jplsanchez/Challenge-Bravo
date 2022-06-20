@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>c3e43b31-e85c-4c43-b503-4937f0665aba</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="Npgsql" Version="6.0.5" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CB.Core.Domain\CB.Core.Domain.csproj" />
+    <ProjectReference Include="..\CB.Core.Service\CB.Core.Service.csproj" />
+    <ProjectReference Include="..\CB.Infra.Data\CB.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
