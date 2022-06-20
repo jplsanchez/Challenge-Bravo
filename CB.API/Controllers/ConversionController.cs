@@ -1,6 +1,4 @@
 ﻿using CB.Core.Domain.DTO;
-using CB.Core.Domain.Entities;
-using CB.Core.Domain.Interfaces.Repositories;
 using CB.Core.Service.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +19,7 @@ namespace CB.API.Controllers
         public async Task<IActionResult> Convert([FromBody] ConversionDTO dto)
         {
             float value = await _service.Convert(dto);
-            return Ok(value);
+            return Ok(value.ToString("n2"));
         }
     }
 }
