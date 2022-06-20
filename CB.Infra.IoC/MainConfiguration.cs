@@ -15,6 +15,7 @@ namespace CB.Infra.IoC
 
             services.ResolveDependencies();
             services.ConfigureDb(settings);
+            services.ConfigureMediatR();
 
             return services;
         }

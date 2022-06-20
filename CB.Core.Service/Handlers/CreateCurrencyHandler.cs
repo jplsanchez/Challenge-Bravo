@@ -6,7 +6,7 @@ using MediatR;
 
 namespace CB.Core.Service.Handlers
 {
-    public class CreateCurrencyHandler
+    public class CreateCurrencyHandler : IRequestHandler<CreateCurrencyCommand, string>
     {
         private readonly IMediator _mediator;
         private readonly IRepository<Currency> _repository;
@@ -22,6 +22,7 @@ namespace CB.Core.Service.Handlers
             { 
                 Id = Guid.NewGuid(),
                 Name = request.Name,
+                LongName = request.LongName,
                 ValueInUSD = request.ValueInUSD,
                 CreatedAt = DateTime.UtcNow,
                 ModifiedAt = DateTime.UtcNow
@@ -30,13 +31,13 @@ namespace CB.Core.Service.Handlers
             try
             {
                 await _repository.Add(currency);
-                await _mediator.Publish(new SuccessNotification<Currency>(currency.Id, true));
+                await _mediator.Publish(new SuccessNotification<Currency>(currency.Id, "Create", true));
 
                 return await Task.FromResult("Currency created successfully");
             }
             catch (Exception ex)
             {
-                await _mediator.Publish(new SuccessNotification<Currency>(currency.Id, false));
+                await _mediator.Publish(new SuccessNotification<Currency>(currency.Id, "Create", false));
                 await _mediator.Publish(new ErrorNotification { Exception = ex.Message, StackError = ex.StackTrace });
 
                 return await Task.FromResult("An error occurred during creation process");

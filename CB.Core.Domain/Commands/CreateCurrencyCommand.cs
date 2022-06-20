@@ -8,6 +8,8 @@ namespace CB.Core.Domain.Commands
         [Required]
         public string Name { get; set; }
 
+        public string? LongName { get; set; }
+
         [Required]
         public float ValueInUSD { get; set; }
     }
