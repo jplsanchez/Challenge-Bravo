@@ -1,5 +1,5 @@
 ﻿using CB.Core.Domain.Entities;
-using CB.Core.Domain.Interfaces.Repositories;
+using CB.Core.Domain.Interfaces;
 using CB.Infra.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;

@@ -1,6 +1,6 @@
 ﻿using CB.Core.Domain.Commands;
 using CB.Core.Domain.Entities;
-using CB.Core.Domain.Interfaces.Repositories;
+using CB.Core.Domain.Interfaces;
 using CB.Core.Domain.Notifications;
 using MediatR;
 

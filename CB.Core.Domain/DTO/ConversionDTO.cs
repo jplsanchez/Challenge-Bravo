@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CB.Core.Domain.DTO
+﻿namespace CB.Core.Domain.DTO
 {
-    internal class ConversionDTO
+    public record ConversionDTO
     {
+        public string From { get; init; }
+        public string To { get; init; }
+        public float Value { get; init; }
     }
 }

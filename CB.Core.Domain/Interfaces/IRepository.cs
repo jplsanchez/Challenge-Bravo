@@ -1,7 +1,7 @@
 ﻿using CB.Core.Domain.Entities;
 using System.Linq.Expressions;
 
-namespace CB.Core.Domain.Interfaces.Repositories
+namespace CB.Core.Domain.Interfaces
 {
     public interface IRepository<T> : IDisposable where T : class
     {
