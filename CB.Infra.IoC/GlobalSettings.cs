@@ -1,15 +1,23 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using CB.Core.Domain.Interfaces;
+using Microsoft.Extensions.Configuration;
 
 
 namespace CB.Infra.IoC
 {
-    public record GlobalSettings
+    public record GlobalSettings : IGlobalSettings
     {
         public string PostgresConnStr { get; init; }
+        public string Secret { get; init; }
+
+        public string AdminName { get; init; } 
+        public string AdminPassword { get; init; }
 
         public GlobalSettings(IConfiguration configuration)
         {
             PostgresConnStr = GetHerokuConnectionString(configuration);
+            Secret = configuration.GetSection("SECRET").Value;
+            AdminName = configuration.GetSection("ADMIN_NAME").Value;
+            AdminPassword = configuration.GetSection("ADMIN_PASSWORD").Value;
         }
 
         private static string GetHerokuConnectionString(IConfiguration configuration)

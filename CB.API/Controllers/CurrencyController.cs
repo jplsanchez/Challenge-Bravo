@@ -2,12 +2,14 @@
 using CB.Core.Domain.Entities;
 using CB.Core.Domain.Interfaces;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CB.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CurrencyController : ControllerBase
     {
         private readonly IRepository<Currency> _repository;
@@ -20,12 +22,14 @@ namespace CB.API.Controllers
         }
 
         [HttpGet("Get")]
+        [AllowAnonymous]
         public async Task<IEnumerable<Currency>> GetAll()
         {
             var result = await _repository.GetAll();
             return result;
         }
         [HttpGet("Get/{name}")]
+        [AllowAnonymous]
         public async Task<IEnumerable<Currency>> GetByName(string name)
         {
             var result = await _repository.Get(c => c.Name == name);

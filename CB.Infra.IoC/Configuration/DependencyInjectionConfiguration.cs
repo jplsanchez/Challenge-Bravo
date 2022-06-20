@@ -12,7 +12,11 @@ namespace CB.Infra.IoC.Configuration
         public static IServiceCollection ResolveDependencies(this IServiceCollection services)
         {
             services.AddScoped<IRepository<Currency>, Repository<Currency>>();
+            services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
+
             services.AddScoped<IConversionService, ConversionService>();
+            services.AddScoped<ITokenService, TokenService>();
+
             return services;
         }
     }

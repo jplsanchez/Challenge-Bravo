@@ -1,5 +1,4 @@
-﻿using CB.Core.Domain.Entities;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 
 namespace CB.Core.Domain.Interfaces
 {
