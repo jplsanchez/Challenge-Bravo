@@ -1,6 +1,6 @@
 ﻿# Challenge Bravo - jplsanchez
 
-Challenge done to practice .NET Core WebAPI skills.
+Challenge done for fun to practice .NET Core WebAPI skills.
 
 
 Challenge from CollabCodeTech:
